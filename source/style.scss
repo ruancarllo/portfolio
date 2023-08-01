@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css?family=Fragment+Mono');
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes emerge {
+  0% { transform: translateY(2vw) }
+  50% { transform: translateY(-2vw) }
+  100% { transform: translateY(2vw) }
+}
+
+body {
+  width: 100vw;
+  display: flex;
+
+  flex-direction: column;
+  font-family: 'Fragment Mono';
+
+  user-select: none;
+}
+
+.startview {
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+
+  background: linear-gradient(60deg, #334fdc, #011da9);
+  color: #ffffff;
+
+  h1 {
+    grid-area: title;
+    font-style: italic;
+  }
+
+  p {
+    grid-area: description;
+  }
+
+  h2 {
+    grid-area: topic;
+  }
+
+  .habilities {
+    grid-area: habilities;
+
+    width: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .render {
+    grid-area: render;
+
+    flex: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    #logo {
+      animation: emerge 5s infinite ease-in-out;
+    }
+  }
+}
+
+.specifications {
+  width: 100vw;
+
+  .visual {
+    grid-area: visual;
+
+    display: grid;
+    place-items: center;
+
+    .face {
+      width: 100%;
+      border-radius: 100vmax;
+    }
+  }
+
+  .about {
+    grid-area: about;
+
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo {
+      margin-top: auto;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: #212529;
+  color: #ffffff;
+  
+  font-family: 'Fragment Mono';
+
+  .social-networks {
+    width: min-content;
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    .feather {
+      width: inherit;
+      height: inherit;
+      color: #ffffff;
+    }
+  }
+}
+
+@media (min-aspect-ratio: 2 / 3) {
+  $footer-height: 7vh;
+
+  .startview {
+    padding: 7vw 7vw 7vw 7vw;
+    gap: 2.5vh 10vw;
+
+    grid-template-areas:
+      "title render"
+      "description render"
+      "topic render"
+      "habilities render"
+    ;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, min-content);
+
+    h1 {
+      font-size: 4.7vw;
+    }
+
+    p {
+      font-size: 1.35vw;
+    }
+
+    h2 {
+      margin-top: 2vw;
+
+      font-size: 2.2vw;
+    }
+
+    .habilities {
+      gap: 1vw;
+    }
+
+    .render {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .specifications {
+    height: 100vh - $footer-height;
+    padding: 6vw;
+    gap: 10vw;
+
+    display: grid;
+    grid-template-areas:
+      "visual about"
+    ;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    .about {
+      .info {
+        gap: 1vw;
+      }
+
+      .demo {
+        gap: 1vw;
+      }
+
+      h1 {
+        gap: 1vw;
+
+        font-size: 2.2vw;
+
+        .medals {
+          font-size: 2vw;
+        }
+      }
+
+      p {
+        font-size: 2.4vmin;
+      }
+    }
+  }
+
+  .footer {
+    width: 100vw;
+    height: $footer-height;
+    padding: 2vh;
+
+    font-size: 2vh;
+
+    .social-networks {
+      gap: 1vh;
+
+      a {
+        width: 3vh;
+        height: 3vh;
+      }
+
+      .feather {
+        stroke-width: 2px;
+      }
+    }  
+  }
+}
+
+@media (max-aspect-ratio: 2 / 3) {
+  $footer-height: 10vw;
+
+  .startview {
+    padding: 12vh 7vw 12vh 7vw;
+    gap: 4vw;
+
+    grid-template-areas:
+      "title"
+      "description"
+      "render"
+      "topic"
+      "habilities"
+    ;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+
+    h1 {
+      font-size: 10vw;
+      text-align: center;
+    }
+
+    p {
+      font-size: 3.6vw;
+    }
+
+    h2 {
+      margin-top: 5vw;
+
+      font-size: 5vw;
+    }
+
+    .habilities {
+      gap: 2vw;
+    }
+
+    .render {
+      margin: 2vh 0 2vh 0;
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+
+  .specifications {
+    height: min-content;
+    padding: 6vw;
+    gap: 10vw;
+
+    display: grid;
+    grid-template-areas:
+      "visual"
+      "about"
+    ;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+
+    .visual {
+      .face {
+        width: 80%;
+      }
+    }
+
+    .about {
+      gap: 5vh;
+
+      .info {
+        gap: 1vw;
+
+        .medals {
+          font-size: 3vw;
+        }
+      }
+
+      .demo {
+        gap: 1vw;
+      }
+
+      h1 {
+        gap: 2vw;
+
+        font-size: 5vw;
+      }
+
+      p {
+        font-size: 3vw;
+      }
+    }
+  }
+
+  .footer {
+    width: 100vw;
+    height: $footer-height;
+    padding: 4vw;
+
+    font-size: 3vw;
+
+    .social-networks {
+      gap: 1.5vw;
+
+      a {
+        width: 5vw;
+        height: 5vw;
+      }
+
+      .feather {
+        stroke-width: 2px;
+      }
+    }  
+  }
+}

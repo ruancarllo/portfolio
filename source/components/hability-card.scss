@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Fragment+Mono');
+
+.hability-card {
+  border-radius: 100vmax;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-family: 'Fragment Mono';
+  font-style: normal;
+  
+  color: #000000;
+
+  .icon {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+}
+
+@media (min-aspect-ratio: 2 / 3) {
+  .hability-card {
+    width: min-content;
+    height: 2vw;
+    padding: 0.3vw 0.8vw 0.3vw 0.8vw;
+    gap: 0.5vw;
+  
+    .name {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+@media (max-aspect-ratio: 2 / 3) {
+  .hability-card {
+    width: min-content;
+    height: 5vw;
+    padding: 0.8vw 1.6vw 0.8vw 1.6vw;
+    gap: 1vw;
+
+    .name {
+      font-size: 3vw;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.slider {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  overflow: hidden;
+  position: relative;
+
+  & > * {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    position: absolute;
+  }
+
+  & > :nth-child(1) {
+    transform: translate(-100%);
+  }
+
+  & > :nth-child(3) {
+    transform: translate(100%);
+  }
+}
+
+@media (min-aspect-ratio: 2 / 3) {
+  .slider {
+    height: 15vw;
+    border-radius: 2vw;
+  }
+}
+
+@media (max-aspect-ratio: 2 / 3) {
+  .slider {
+    height: 35vw;
+    border-radius: 4vw;
+  }
+}

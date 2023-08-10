@@ -24,7 +24,7 @@ function App() {
           <Highlight>{">"}</Highlight>
         </h1>
         <p>
-          Olá, Mundo! Sou o Ruan, tenho 17 anos e estou concluíndo o terceiro ano do Ensino Médio.
+          Olá, Mundo! Sou o Ruan, tenho 18 anos e estou concluíndo o terceiro ano do Ensino Médio.
         </p>
         <h2>
           <Highlight>{"# "}</Highlight>

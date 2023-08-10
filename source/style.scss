@@ -187,7 +187,7 @@ body {
   }
 
   .specifications {
-    height: 100vh - $footer-height;
+    min-height: 100vh - $footer-height;
     padding: 6vw;
     gap: 10vw;
 

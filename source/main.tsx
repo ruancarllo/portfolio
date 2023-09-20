@@ -39,7 +39,9 @@ function App() {
           <HabilityCard animationTime={500} name="SCSS" icon="static/icons/scss.png" background="#CD669A"/>
           <HabilityCard animationTime={500} name="Dart" icon="static/icons/dart.png" background="#C6F8FF"/>
           <HabilityCard animationTime={500} name="pwsh" icon="static/icons/pwsh.png" background="#4C89CF"/>
+          <HabilityCard animationTime={500} name="C#" icon="static/icons/cs.png" background="#DCCDEF"/>
           <HabilityCard animationTime={500} name="Svelte" icon="static/icons/svelte.png" background="#FF4000"/>
+          <HabilityCard animationTime={500} name="React" icon="static/icons/react.png" background="#EAFDFF"/>
           <HabilityCard animationTime={500} name="Preact" icon="static/icons/preact.png" background="#A867F8"/>
         </div>
         <div className="render" data-platform={this.props.platform}>
@@ -65,6 +67,13 @@ function App() {
               Projetos
             </h1>
             <Slider animationTime={500} autoDelay={5000}>
+            <ProjectCard
+                title="Quasar"
+                description="Um bot educacional de inteligência artificial capaz de randomizar questões resolvidas de vestibulares."
+                mainIcon="static/icons/bun.png"
+                backgroundColor="#7048e8"
+                fontColor="#ffffff"
+              />
               <ProjectCard
                 title="Pirilampo"
                 description="Um bot educacional de inteligência artificial capaz de randomizar questões resolvidas de vestibulares."
@@ -73,9 +82,9 @@ function App() {
                 fontColor="#ffffff"
               />
               <ProjectCard
-                title="RhinoScaler"
+                title="Excalibur"
                 description="Um software que fornece uma interface de usuário simples para dimensionar objetos no programa 3D Rhinoceros 5."
-                mainIcon="static/icons/py.png"
+                mainIcon="static/icons/cs.png"
                 backgroundColor="#1c7ed6"
                 fontColor="#ffffff"
               />
@@ -90,7 +99,7 @@ function App() {
                 title="Vestractor"
                 description="Um software de linha de comando que extrai resoluções de questões de vestibular, salvando-as em YAML ou JSON."
                 mainIcon="static/icons/dart.png"
-                backgroundColor="#7048e8"
+                backgroundColor="#f08c00"
                 fontColor="#ffffff"
               />
               <ProjectCard

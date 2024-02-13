@@ -35,7 +35,7 @@ class Slider extends Preact.Component<Props> {
     
     let isAnimating: boolean;
 
-    let autoInterval: NodeJS.Timer | undefined;
+    let autoInterval: NodeJS.Timeout | undefined;
 
     function circularIndex(position: number, length: number) {
       let remainder = position % length;
@@ -43,6 +43,8 @@ class Slider extends Preact.Component<Props> {
       if (remainder === 0) return 0;
       if (position >= 0) return remainder;
       if (position < 0) return length + remainder;
+
+      return NaN;
     }
 
     function centerSlides(centralIndex: number) {
@@ -65,13 +67,14 @@ class Slider extends Preact.Component<Props> {
       isAnimating = true;
 
       actualSlides.forEach((animatedSlide: Element, index: number) => {
-        let deslocationFactor: number;
-        if (index === 0) deslocationFactor = -100;
-        if (index === 1) deslocationFactor = 0;
-        if (index === 2) deslocationFactor = +100;
+        let dislocationFactor: number = 0;
+        
+        if (index === 0) dislocationFactor = -100;
+        if (index === 1) dislocationFactor = 0;
+        if (index === 2) dislocationFactor = +100;
 
         animatedSlide.animate([
-          {transform: `translateX(${-advanceFactor * 100 + deslocationFactor}%)`}
+          {transform: `translateX(${-advanceFactor * 100 + dislocationFactor}%)`}
         ], {
           duration: animationTime,
           easing: 'ease-in-out',

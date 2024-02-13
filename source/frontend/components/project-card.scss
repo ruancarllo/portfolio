@@ -11,8 +11,9 @@
   }
 
   .icon-ball {
-    width: 3vw;
-    aspect-ratio: 1 / 1;
+    min-width: 3vw;
+    min-height: 3vw;
+
     margin: auto 0 0 auto;
     border-radius: 100vmax;
 

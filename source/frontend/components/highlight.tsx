@@ -17,14 +17,14 @@ class Highlight extends Preact.Component<Props> {
       });
     }
     
-    let disanimateAll = () => {
+    let desanimasteAll = () => {
       document.querySelectorAll('.highlight').forEach((element) => {
         element.classList.remove('animating')
       });
     }
   
     return (
-      <span className="highlight" onMouseEnter={animateAll} onMouseLeave={disanimateAll}>
+      <span className="highlight" onMouseEnter={animateAll} onMouseLeave={desanimasteAll}>
         {this.props.children}
       </span>
     );

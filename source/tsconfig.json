@@ -4,8 +4,9 @@
     "jsxFactory": "Preact.h",
     "jsxFragmentFactory": "Preact.Fragment",
 
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "strict": true
   }
 }

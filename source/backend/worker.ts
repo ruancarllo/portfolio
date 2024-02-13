@@ -4,18 +4,18 @@ import fs from 'fs-extra';
 import path from 'path';
 
 class Directories {
-  static source = path.join(__dirname, 'source');
-  static target = path.join(__dirname, 'docs');
+  static websiteSource = path.join(__dirname, '..', 'frontend');
+  static websiteTarget = path.join(__dirname, '..', '..', 'dist');
 
   static public = {
-    source: path.join(this.source, 'static'),
-    target: path.join(this.target, 'static')
+    staticSource: path.join(this.websiteSource, 'static'),
+    staticTarget: path.join(this.websiteTarget, 'static')
   }
 }
 
 async function serve() {
   let app = await vite.createServer({
-    root: Directories.source,
+    root: Directories.websiteSource,
     mode: 'development'
   });
 
@@ -26,12 +26,12 @@ async function serve() {
 
 async function build() {
   await vite.build({
-    root: Directories.source,
+    root: Directories.websiteSource,
     mode: 'production',
     base: '',
     publicDir: false,
     build: {
-      outDir: Directories.target,
+      outDir: Directories.websiteTarget,
       emptyOutDir: true,
       rollupOptions: {
         output: {
@@ -42,14 +42,14 @@ async function build() {
     }
   });
   
-  let indexPath = path.join(Directories.target, 'index.html');
+  let indexPath = path.join(Directories.websiteTarget, 'index.html');
   let indexContent = fs.readFileSync(indexPath, 'utf-8');
 
   let indexFilteredLines = indexContent.split('\n').filter((item) => item.trim());
   let indexFilteredContent = indexFilteredLines.join('\n');
 
   fs.writeFileSync(indexPath, indexFilteredContent);
-  fs.copy(Directories.public.source, Directories.public.target, (error) => null);
+  fs.copy(Directories.public.staticSource, Directories.public.staticTarget, (error) => null);
 }
 
 if (process.argv.includes('build')) build();

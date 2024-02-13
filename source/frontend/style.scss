@@ -50,8 +50,8 @@ body {
     grid-area: topic;
   }
 
-  .habilities {
-    grid-area: habilities;
+  .abilities {
+    grid-area: abilities;
 
     width: auto;
 
@@ -156,7 +156,7 @@ body {
       "title render"
       "description render"
       "topic render"
-      "habilities render"
+      "abilities render"
     ;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, min-content);
@@ -175,7 +175,7 @@ body {
       font-size: 2.2vw;
     }
 
-    .habilities {
+    .abilities {
       gap: 1vw;
     }
 
@@ -257,7 +257,7 @@ body {
       "description"
       "render"
       "topic"
-      "habilities"
+      "abilities"
     ;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, min-content);
@@ -277,7 +277,7 @@ body {
       font-size: 5vw;
     }
 
-    .habilities {
+    .abilities {
       gap: 2vw;
     }
 

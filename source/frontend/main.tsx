@@ -58,7 +58,7 @@ function App() {
           <div className="info">
             <h1>
               <span>Realizações</span>
-              <span className="medals">🥇🥇🥇🥈</span>
+              <span className="medals">🥇🥇🥇🥇🥈</span>
             </h1>
             <p>
               Durante a minha vida acadêmica, obtive diversas conquistas, dentre as quais está a minha atuação em competições científicas.

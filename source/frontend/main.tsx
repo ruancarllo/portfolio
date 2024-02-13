@@ -64,7 +64,7 @@ function App() {
               Durante a minha vida acadêmica, obtive diversas conquistas, dentre as quais está a minha atuação em competições científicas.
             </p>
             <p>
-              No ano de 2021, fui homenageado com uma medalha de ouro na Olimpíada Nacional de Ciências, e com uma de prata na Olimpíada Brasileira de Astronomia e Astronáutica, nesta tendo conseguido ouro em 2022 e 2023.
+              Nos anos de 2021 e 2023, fui homenageado com medalhas de ouro na Olimpíada Nacional de Ciências. Após conquistar uma de prata na Olimpíada Brasileira de Astronomia e Astronáutica em 2021, fui prestigiado com outras medalhas de ouro em 2022 e 2023.
             </p>
           </div>
           <div className="demo">

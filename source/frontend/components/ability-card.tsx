@@ -1,5 +1,5 @@
 import * as Preact from 'preact';
-import './hability-card.scss';
+import './ability-card.scss';
 
 type Props = {
   name: string,
@@ -8,7 +8,7 @@ type Props = {
   animationTime: number,
 }
 
-class HabilityCard extends Preact.Component<Props> {
+class AbilityCard extends Preact.Component<Props> {
   reference = Preact.createRef<HTMLDivElement>();
 
   constructor(props: Props) {
@@ -17,7 +17,7 @@ class HabilityCard extends Preact.Component<Props> {
 
   render() {
     return (
-      <div className="hability-card" style={{background: this.props.background}} ref={this.reference}>
+      <div className="ability-card" style={{background: this.props.background}} ref={this.reference}>
         <div className="icon" style={{backgroundImage: `url("${this.props.icon}")`}}/>
         <p className="name">{this.props.name}</p>
       </div>
@@ -53,4 +53,4 @@ class HabilityCard extends Preact.Component<Props> {
   }
 }
 
-export default HabilityCard;
+export default AbilityCard;

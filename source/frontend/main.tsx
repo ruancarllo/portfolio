@@ -1,7 +1,7 @@
 import * as Preact from 'preact';
 
 import Highlight from './components/highlight.tsx';
-import HabilityCard from './components/hability-card.tsx';
+import AbilityCard from './components/ability-card.tsx';
 import Slider from './components/slider.tsx';
 import ProjectCard from './components/project-card.tsx';
 
@@ -24,27 +24,29 @@ function App() {
           <Highlight>{">"}</Highlight>
         </h1>
         <p>
-          Olá, Mundo! Sou o Ruan, tenho 18 anos e estou concluíndo o terceiro ano do Ensino Médio.
+          Olá, Mundo! Sou o Ruan, tenho 18 anos e sou calouro no curso de Ciências da Computação da Universidade Estadual Paulista (UNESP).
         </p>
         <h2>
           <Highlight>{"# "}</Highlight>
           <span>Habilidades</span>
         </h2>
-        <div className="habilities">
-          <HabilityCard animationTime={500} name="HTML" icon="static/icons/html.png" background="#F16529"/>
-          <HabilityCard animationTime={500} name="CSS" icon="static/icons/css.png" background="#5789FF"/>
-          <HabilityCard animationTime={500} name="JavaScript" icon="static/icons/js.png" background="#FFdd00"/>
-          <HabilityCard animationTime={500} name="Python" icon="static/icons/py.png" background="#E2dEdE"/>
-          <HabilityCard animationTime={500} name="TypeScript" icon="static/icons/ts.png" background="#3179C6"/>
-          <HabilityCard animationTime={500} name="SCSS" icon="static/icons/scss.png" background="#CD669A"/>
-          <HabilityCard animationTime={500} name="Dart" icon="static/icons/dart.png" background="#C6F8FF"/>
-          <HabilityCard animationTime={500} name="pwsh" icon="static/icons/pwsh.png" background="#4C89CF"/>
-          <HabilityCard animationTime={500} name="C#" icon="static/icons/cs.png" background="#DCCDEF"/>
-          <HabilityCard animationTime={500} name="Svelte" icon="static/icons/svelte.png" background="#FF4000"/>
-          <HabilityCard animationTime={500} name="React" icon="static/icons/react.png" background="#EAFDFF"/>
-          <HabilityCard animationTime={500} name="Preact" icon="static/icons/preact.png" background="#A867F8"/>
+        <div className="abilities">
+          <AbilityCard animationTime={500} name="HTML" icon="static/icons/html.png" background="#F16529"/>
+          <AbilityCard animationTime={500} name="CSS" icon="static/icons/css.png" background="#5789FF"/>
+          <AbilityCard animationTime={500} name="JavaScript" icon="static/icons/js.png" background="#FFdd00"/>
+          <AbilityCard animationTime={500} name="Python" icon="static/icons/py.png" background="#E2dEdE"/>
+          <AbilityCard animationTime={500} name="TypeScript" icon="static/icons/ts.png" background="#3179C6"/>
+          <AbilityCard animationTime={500} name="SCSS" icon="static/icons/scss.png" background="#CD669A"/>
+          <AbilityCard animationTime={500} name="Dart" icon="static/icons/dart.png" background="#C6F8FF"/>
+          <AbilityCard animationTime={500} name="pwsh" icon="static/icons/pwsh.png" background="#4C89CF"/>
+          <AbilityCard animationTime={500} name="C#" icon="static/icons/cs.png" background="#DCCDEF"/>
+          <AbilityCard animationTime={500} name="Svelte" icon="static/icons/svelte.png" background="#FF4000"/>
+          <AbilityCard animationTime={500} name="React" icon="static/icons/react.png" background="#EAFDFF"/>
+          <AbilityCard animationTime={500} name="Preact" icon="static/icons/preact.png" background="#A867F8"/>
+          <AbilityCard animationTime={500} name="Flutter" icon="static/icons/flutter.png" background="#57a0de"/>
+          <AbilityCard animationTime={500} name=".NET" icon="static/icons/dotnet.png" background="#8f78e3"/>
         </div>
-        <div className="render" data-platform={this.props.platform}>
+        <div className="render">
           <img id="logo" src="static/images/rwan-3d.svg"/>
         </div>
       </section>
@@ -59,7 +61,10 @@ function App() {
               <span className="medals">🥇🥇🥇🥈</span>
             </h1>
             <p>
-              Durante a minha vida acadêmica, obtive diversas conquistas, dentre as quais está a minha atuação olímpica em competições científicas. Sendo assim, no ano de 2021 fui homenageado com uma medalha de ouro na Olimpíada Nacional de Ciências, e com uma de prata na Olimpíada Brasileira de Astronomia e Astronáutica, nesta tendo conseguido o ouro em 2022 e 2023.
+              Durante a minha vida acadêmica, obtive diversas conquistas, dentre as quais está a minha atuação em competições científicas.
+            </p>
+            <p>
+              No ano de 2021, fui homenageado com uma medalha de ouro na Olimpíada Nacional de Ciências, e com uma de prata na Olimpíada Brasileira de Astronomia e Astronáutica, nesta tendo conseguido ouro em 2022 e 2023.
             </p>
           </div>
           <div className="demo">
@@ -141,10 +146,10 @@ feather.replace();
 
 alternatePageTitle(250, ['Ruancar//o 💻', 'Ruancar//o ⚡', 'Ruancar//o 💡', 'Ruancar//o ⚛']);
 
-let face = document.querySelector('.face');
+const face = document.querySelector('.face');
 
-face.addEventListener('mouseover', () => {
-  face.animate([
+face?.addEventListener('mouseover', () => {
+  face?.animate([
     {transform: 'rotate(0deg)'},
     {transform: 'rotate(20deg) scale(1.1)'},
     {transform: 'rotate(0deg)'}

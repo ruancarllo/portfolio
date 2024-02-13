@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fragment+Mono');
 
-.hability-card {
+.ability-card {
   border-radius: 100vmax;
   
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 @media (min-aspect-ratio: 2 / 3) {
-  .hability-card {
+  .ability-card {
     width: min-content;
     height: 2vw;
     padding: 0.3vw 0.8vw 0.3vw 0.8vw;
@@ -37,7 +37,7 @@
 }
 
 @media (max-aspect-ratio: 2 / 3) {
-  .hability-card {
+  .ability-card {
     width: min-content;
     height: 5vw;
     padding: 0.8vw 1.6vw 0.8vw 1.6vw;

@@ -27,6 +27,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
   
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,6 +40,11 @@ jobs:
           npm install --package-lock=false
           npm run build
           npm run route
+
+          cd ../dist
+          git clone https://github.com/ruancarllo/cascader.git
+          dart cascader/source/cascader.dart convert
+          rm -rf cascader
     
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

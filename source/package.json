@@ -15,6 +15,7 @@
   },
   "scripts": {
     "serve": "ts-node backend/worker.ts serve",
-    "build": "ts-node backend/worker.ts build"
+    "build": "ts-node backend/worker.ts build",
+    "route": "ts-node backend/worker.ts route"
   }
 }

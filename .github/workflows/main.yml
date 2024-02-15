@@ -36,6 +36,7 @@ jobs:
           cd ./source
           npm install --package-lock=false
           npm run build
+          npm run route
     
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

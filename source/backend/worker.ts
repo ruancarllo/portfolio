@@ -18,8 +18,12 @@ class Directories {
 }
 
 class Routing {
-  static registeredEntries: {[subRoute: string]: string} = {
-    'search': 'https://google.com',
+  static registeredEntries: {[subRoute: string]: {url: string, title: string, image: string}} = {
+    'quasar': {
+      title: 'Quasar',
+      url: 'https://paradoxo-quasar.web.app',
+      image: 'https://paradoxo-quasar.web.app/assets/images/application-banner.png'
+    }
   }
 
   static pageTemplate = fs.readFileSync(Directories.serverTemplates.subRoute, 'utf-8');
@@ -67,7 +71,12 @@ async function build() {
 async function route() {
   for (let subRoute in Routing.registeredEntries) {
     const subRouteURL = Routing.registeredEntries[subRoute];
-    const subRoutePage = Routing.pageTemplate.replace('SUB-ROUTE', subRouteURL);
+
+    let subRoutePage = Routing.pageTemplate;
+    subRoutePage = subRoutePage.replaceAll('$SUB-ROUTE', subRouteURL.url);
+    subRoutePage = subRoutePage.replaceAll('$TITLE', subRouteURL.title);
+    subRoutePage = subRoutePage.replaceAll('$IMAGE', subRouteURL.image);
+
     const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
 
     fs.writeFileSync(subRoutePath, subRoutePage);

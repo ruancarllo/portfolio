@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "lib": ["ESNext"],
+
     "jsx": "preserve",
     "jsxFactory": "Preact.h",
     "jsxFragmentFactory": "Preact.Fragment",
 
-    "allowImportingTsExtensions": true,
-    "esModuleInterop": true,
+    "strict": true,
     "noEmit": true,
-    "strict": true
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
   }
 }

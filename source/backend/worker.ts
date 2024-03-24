@@ -26,8 +26,8 @@ class Routing {
       image: 'https://paradoxo-quasar.web.app/assets/images/application-banner.png'
     },
     'unesp': {
-      title: 'UNESP-IGCE · Cronograma do curso noturno',
-      description: 'Plataforma onde os calouros de Ciências da Computação encontram uma maneira fácil e rápida de se atualizar dentro do campus!',
+      title: 'UNESP · Cronograma do curso noturno',
+      description: 'Horários e datas para Ciências da Computação!',
       url: 'https://ruancarllo.github.io/unesp',
       image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/unesp-banner.png'
     }

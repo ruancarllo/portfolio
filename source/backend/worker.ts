@@ -18,11 +18,18 @@ class Directories {
 }
 
 class Routing {
-  static registeredEntries: {[subRoute: string]: {url: string, title: string, image: string}} = {
+  static registeredEntries: {[subRoute: string]: {url: string, title: string, description: string, image: string}} = {
     'quasar': {
       title: 'Quasar',
+      description: 'O seu aplicativo de estudos',
       url: 'https://paradoxo-quasar.web.app',
       image: 'https://paradoxo-quasar.web.app/assets/images/application-banner.png'
+    },
+    'unesp': {
+      title: 'UNESP-IGCE · Horário e datas do curso noturno',
+      description: 'Plataforma onde os calouros de Ciências da Computação encontram uma maneira fácil e rápida de se atualizar dentro do campus!',
+      url: 'https://ruancarllo.github.io/unesp',
+      image: 'raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/unesp-banner.png'
     }
   }
 
@@ -76,6 +83,7 @@ async function route() {
     subRoutePage = subRoutePage.replaceAll('$SUB-ROUTE', subRouteURL.url);
     subRoutePage = subRoutePage.replaceAll('$TITLE', subRouteURL.title);
     subRoutePage = subRoutePage.replaceAll('$IMAGE', subRouteURL.image);
+    subRoutePage = subRoutePage.replaceAll('$DESCRIPTION', subRouteURL.description);
 
     const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
 

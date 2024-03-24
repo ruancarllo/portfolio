@@ -18,18 +18,20 @@ class Directories {
 }
 
 class Routing {
-  static registeredEntries: {[subRoute: string]: {url: string, title: string, description: string, image: string}} = {
+  static registeredEntries: {[subRoute: string]: {url: string, title: string, description: string, image: string, color: string}} = {
     'quasar': {
       title: 'Quasar',
       description: 'O seu aplicativo de estudos',
       url: 'https://paradoxo-quasar.web.app',
-      image: 'https://paradoxo-quasar.web.app/assets/images/application-banner.png'
+      image: 'https://paradoxo-quasar.web.app/assets/images/application-banner.png',
+      color: 'white'
     },
     'unesp': {
       title: 'UNESP · Cronograma do curso noturno',
       description: 'Horários e datas para Ciências da Computação!',
       url: 'https://ruancarllo.github.io/unesp',
-      image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/unesp-banner.png'
+      image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/unesp-banner.png',
+      color: '#020617'
     }
   }
 
@@ -80,10 +82,11 @@ async function route() {
     const subRouteURL = Routing.registeredEntries[subRoute];
 
     let subRoutePage = Routing.pageTemplate;
-    subRoutePage = subRoutePage.replaceAll('$SUB-ROUTE', subRouteURL.url);
-    subRoutePage = subRoutePage.replaceAll('$TITLE', subRouteURL.title);
-    subRoutePage = subRoutePage.replaceAll('$IMAGE', subRouteURL.image);
-    subRoutePage = subRoutePage.replaceAll('$DESCRIPTION', subRouteURL.description);
+    subRoutePage = subRoutePage.replaceAll('SUB-ROUTE', subRouteURL.url);
+    subRoutePage = subRoutePage.replaceAll('TITLE', subRouteURL.title);
+    subRoutePage = subRoutePage.replaceAll('IMAGE', subRouteURL.image);
+    subRoutePage = subRoutePage.replaceAll('DESCRIPTION', subRouteURL.description);
+    subRoutePage = subRoutePage.replaceAll('COLOR', subRouteURL.color);
 
     const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
 

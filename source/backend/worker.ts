@@ -14,11 +14,12 @@ class Directories {
 
   static serverTemplates = {
     subRoute: path.join(__dirname, 'templates', 'sub-route.html'),
+    nestedRoute: path.join(__dirname, 'templates', 'nested-route.html'),
   }
 }
 
 class Routing {
-  static registeredEntries: {[subRoute: string]: {url: string, title: string, description: string, image: string, color: string}} = {
+  static registeredEntries: {[subRoute: string]: {url: string, title: string, description: string, image: string, color: string, nested?: string[]}} = {
     'quasar': {
       title: 'Quasar',
       description: 'O seu aplicativo de estudos',
@@ -32,10 +33,22 @@ class Routing {
       url: 'https://ruancarllo.github.io/unesp',
       image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/unesp-banner.png',
       color: '#020617'
+    },
+    'infodocs': {
+      title: 'InfoDocs',
+      description: 'Conglomerado de documentações para a InfoJr',
+      url: 'https://ruancarllo.github.io/infojr/docs',
+      image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/infojr-banner.png',
+      color: '#161244',
+      nested: [
+        'wordpress-agil',
+        'wordpress-guia'
+      ]
     }
   }
 
-  static pageTemplate = fs.readFileSync(Directories.serverTemplates.subRoute, 'utf-8');
+  static subRouteTemplate = fs.readFileSync(Directories.serverTemplates.subRoute, 'utf-8');
+  static nestedRouteTemplate = fs.readFileSync(Directories.serverTemplates.nestedRoute, 'utf-8');
 }
 
 async function serve() {
@@ -79,18 +92,39 @@ async function build() {
 
 async function route() {
   for (let subRoute in Routing.registeredEntries) {
-    const subRouteURL = Routing.registeredEntries[subRoute];
+    const subRouteObject = Routing.registeredEntries[subRoute];
 
-    let subRoutePage = Routing.pageTemplate;
-    subRoutePage = subRoutePage.replaceAll('SUB-ROUTE', subRouteURL.url);
-    subRoutePage = subRoutePage.replaceAll('TITLE', subRouteURL.title);
-    subRoutePage = subRoutePage.replaceAll('IMAGE', subRouteURL.image);
-    subRoutePage = subRoutePage.replaceAll('DESCRIPTION', subRouteURL.description);
-    subRoutePage = subRoutePage.replaceAll('COLOR', subRouteURL.color);
+    if (subRouteObject.nested === undefined) {
+      let subRoutePage = Routing.subRouteTemplate;
+      subRoutePage = subRoutePage.replaceAll('SUB-ROUTE', subRouteObject.url);
+      subRoutePage = subRoutePage.replaceAll('TITLE', subRouteObject.title);
+      subRoutePage = subRoutePage.replaceAll('IMAGE', subRouteObject.image);
+      subRoutePage = subRoutePage.replaceAll('DESCRIPTION', subRouteObject.description);
+      subRoutePage = subRoutePage.replaceAll('COLOR', subRouteObject.color);
 
-    const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
+      const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
 
-    fs.writeFileSync(subRoutePath, subRoutePage);
+      fs.writeFileSync(subRoutePath, subRoutePage);
+    }
+
+    else {
+      const subRouteFolder = path.join(Directories.websiteTarget, subRoute);
+
+      fs.mkdirSync(subRouteFolder, {recursive: true});
+
+      for (let nestedRoute of subRouteObject.nested) {
+        let nestedRoutePage = Routing.nestedRouteTemplate;
+        nestedRoutePage = nestedRoutePage.replaceAll('NESTED-ROUTE', `${subRouteObject.url}/${nestedRoute}`);
+        nestedRoutePage = nestedRoutePage.replaceAll('TITLE', subRouteObject.title);
+        nestedRoutePage = nestedRoutePage.replaceAll('IMAGE', subRouteObject.image);
+        nestedRoutePage = nestedRoutePage.replaceAll('DESCRIPTION', subRouteObject.description);
+        nestedRoutePage = nestedRoutePage.replaceAll('COLOR', subRouteObject.color);
+
+        const nestedRoutePath = path.join(Directories.websiteTarget, subRoute, `${nestedRoute}.html`);
+
+        fs.writeFileSync(nestedRoutePath, nestedRoutePage);
+      }
+    }
   }
 }
 

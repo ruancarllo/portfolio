@@ -38,7 +38,7 @@ class Routing {
       title: 'InfoDocs',
       description: 'Conglomerado de documentações para a InfoJr',
       url: 'https://ruancarllo.github.io/infojr/docs',
-      image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/infojr-banner.png',
+      image: 'https://raw.githubusercontent.com/ruancarllo/portfolio/main/source/backend/assets/infodocs-banner.png',
       color: '#161244',
       nested: [
         'wordpress-agil',
@@ -108,6 +108,17 @@ async function route() {
     }
 
     else {
+      let subRoutePage = Routing.subRouteTemplate;
+      subRoutePage = subRoutePage.replaceAll('SUB-ROUTE', subRouteObject.url.replaceAll('/docs', ''));
+      subRoutePage = subRoutePage.replaceAll('TITLE', subRouteObject.title);
+      subRoutePage = subRoutePage.replaceAll('IMAGE', subRouteObject.image);
+      subRoutePage = subRoutePage.replaceAll('DESCRIPTION', subRouteObject.description);
+      subRoutePage = subRoutePage.replaceAll('COLOR', subRouteObject.color);
+
+      const subRoutePath = path.join(Directories.websiteTarget, `${subRoute}.html`);
+
+      fs.writeFileSync(subRoutePath, subRoutePage);
+
       const subRouteFolder = path.join(Directories.websiteTarget, subRoute);
 
       fs.mkdirSync(subRouteFolder, {recursive: true});

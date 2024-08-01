@@ -42,7 +42,8 @@ class Routing {
       color: '#161244',
       nested: [
         'wordpress-agil',
-        'wordpress-guia'
+        'wordpress-guia',
+        'fluxo-soluções'
       ]
     }
   }

@@ -24,7 +24,7 @@ function App() {
           <Highlight>{">"}</Highlight>
         </h1>
         <p>
-          Olá, Mundo! Sou o Ruan, tenho 18 anos e sou calouro no curso de Ciências da Computação da Universidade Estadual Paulista (UNESP).
+          Olá, Mundo! Sou o Ruan, tenho 19 anos e sou calouro no curso de Ciências da Computação da Universidade Estadual Paulista (UNESP).
         </p>
         <h2>
           <Highlight>{"# "}</Highlight>

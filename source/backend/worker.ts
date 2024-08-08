@@ -44,7 +44,8 @@ class Routing {
         'wordpress-agil',
         'wordpress-guia',
         'fluxo-soluções',
-        'github-projects'
+        'github-projects',
+        'ferramentas-backend'
       ]
     }
   }

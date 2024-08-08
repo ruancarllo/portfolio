@@ -43,7 +43,8 @@ class Routing {
       nested: [
         'wordpress-agil',
         'wordpress-guia',
-        'fluxo-soluções'
+        'fluxo-soluções',
+        'github-projects'
       ]
     }
   }

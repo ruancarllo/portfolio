@@ -37,7 +37,8 @@ jobs:
           npm install --package-lock=false
           npm run build
           npm run route
-          cp -r ../extra ./dist
+          cd ..
+          cp -r ./extra ./dist
     
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
